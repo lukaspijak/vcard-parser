@@ -233,6 +233,18 @@
 								case 'charset': // v2.1
 									if ($ParamValue != 'utf-8' && $ParamValue != 'utf8')
 									{
+									    if($ParamValue === 'windows-1250')
+										{
+										    $Value = strtr($Value, array(
+											"\x80"=>"EUR","\x81"=>"","\x82"=>"`","\x83"=>"","\x84"=>"\"","\x85"=>"...","\x86"=>"+","\x87"=>"","\x88"=>"",
+											"\x89"=>"o/oo","\x8a"=>"\xa9","\x8b"=>"<","\x8c"=>"\xa6","\x8d"=>"\xab","\x8e"=>"\xae","\x8f"=>"\xac","\x90"=>"","\x91"=>"`",
+											"\x92"=>"\xb4","\x93"=>"\"","\x94"=>"\"","\x95"=>"o","\x96"=>"-","\x97"=>"-","\x98"=>"","\x99"=>"TM","\x9a"=>"\xb9","\x9b"=>">",
+											"\x9c"=>"\xb6","\x9d"=>"\xbb","\x9e"=>"\xbe","\x9f"=>"\xbc","\xa1"=>"\xb7","\xa5"=>"\xa1","\xa6"=>"|","\xa9"=>"(c)","\xab"=>"<<","\xac"=>"not",
+											"\xae"=>"(R)","\xb1"=>"+/-","\xb5"=>"u","\xb6"=>"P","\xb7"=>".","\xb9"=>"\xb1","\xbb"=>">>","\xbc"=>"\xa5","\xbe"=>"\xb5")
+										    );
+										    $ParamValue = 'iso-8859-2';
+										}
+
 										$Value = mb_convert_encoding($Value, 'UTF-8', $ParamValue);
 									}
 									break;
