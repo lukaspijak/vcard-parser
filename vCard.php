@@ -655,7 +655,7 @@
 		// !Interface methods
 
 		// Countable interface
-		public function count()
+		public function count(): int
 		{
 			switch ($this -> Mode)
 			{
@@ -673,27 +673,27 @@
 		}
 
 		// Iterator interface
-		public function rewind()
+		public function rewind(): void
 		{
 			reset($this -> Data);
 		}
 
-		public function current()
+		public function current(): mixed
 		{
 			return current($this -> Data);
 		}
 
-		public function next()
+		public function next(): void
 		{
-			return next($this -> Data);
+			next($this -> Data);
 		}
 
-		public function valid()
+		public function valid(): bool
 		{
 			return ($this -> current() !== false);
 		}
 
-		public function key()
+		public function key(): mixed
 		{
 			return key($this -> Data);
 		}
