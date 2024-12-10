@@ -69,7 +69,7 @@
 		 *
 		 * One of these parameters must be provided, otherwise an exception is thrown.
 		 */
-		public function __construct($Path = false, $RawData = false, array $Options = null)
+		public function __construct($Path = false, $RawData = false, ?array $Options = null)
 		{
 			// Checking preconditions for the parser.
 			// If path is given, the file should be accessible.
@@ -574,7 +574,7 @@
 		/**
 		 * @access private
 		 */
-		private static function ParseParameters($Key, array $RawParams = null)
+		private static function ParseParameters($Key, ?array $RawParams = null)
 		{
 			if (!$RawParams)
 			{
